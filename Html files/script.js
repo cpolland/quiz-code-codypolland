@@ -1,5 +1,6 @@
 var startBtn = document.getElementById("start-btn")
 var nextBtn = document.getElementById("next-btn")
+var questionLog = document.getElementById('question-log')
 var btnOne = document.getElementById("btn-one")
 var btnTwo = document.getElementById("btn-two")
 var btnThree = document.getElementById("btn-three")
@@ -16,7 +17,8 @@ nextBtn.addEventListener('click', () => {
 })
 
 function startQuiz(){
-
+    startBtn.classList.add('hidden')
+    currentQuestion = 0
 }
 
 var questions = [
