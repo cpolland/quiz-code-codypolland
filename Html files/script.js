@@ -1,6 +1,6 @@
 var startBtn = document.getElementById("start-btn")
-var nextBtn = document.getElementById("#next-btn")
-var questionLog = document.getElementById('#question-log')
+var nextBtn = document.getElementById("next-btn")
+var questionLog = document.getElementById('question-log')
 var questionEl = document.getElementById('questions')
 var answerEl = document.getElementById('answer-btns')
 
@@ -28,7 +28,7 @@ function nextQuestion(){
 }
 
 function startQuestion(question){
-    questionElement.innerText = question.question
+    questionEl.innerText = question.question
   question.answers.forEach(answer => {
     var button = document.createElement('button')
     button.innerText = answer.text
@@ -37,18 +37,40 @@ function startQuestion(question){
       button.dataset.correct = answer.correct
     }
     button.addEventListener('click', selectAnswer)
-    answerButtonsElement.appendChild(button)
+    answerEl.appendChild(button)
   })
 }
 
 function resetQuiz() {
     clearStatusClass(document.body)
-    nextButton.classList.add('hide')
-    while (answerButtonsElement.firstChild) {
-      answerButtonsElement.removeChild(answerButtonsElement.firstChild)
+    nextBtn.classList.add('hidden')
+    while (answerEl.firstChild) {
+      answerEl.removeChild(answerEl.firstChild)
     }
   }
 
+function choseAnswer(event) {
+    var selectedbtn = event.target
+    var correct = selectedbtn.dataset.correct
+    setStatusClass(document.body, correct)
+    Array.from(answerEl.children).forEach(button => {
+      setStatusClass(button, button.dataset.correct)
+      startBtn.innerText = 'Restart'
+      startBtn.classList.remove('hide')
+    })
+}
+function setStatusClass(element, correct) {
+    clearStatusClass(element)
+    if (correct) {
+      element.classList.add('correct')
+    } else {
+      element.classList.add('wrong')
+    }
+  }
+function clearStatusClass(element) {
+    element.classList.remove('correct')
+    element.classList.remove('wrong')
+  }
 var questions = [
     {
         question: 'What function lets you click on a button?',
