@@ -1,10 +1,9 @@
 var startBtn = document.getElementById("start-btn")
-var nextBtn = document.getElementById("next-btn")
-var questionLog = document.getElementById('question-log')
-var btnOne = document.getElementById("btn-one")
-var btnTwo = document.getElementById("btn-two")
-var btnThree = document.getElementById("btn-three")
-var btnFour = document.getElementById("btn-four")
+var nextBtn = document.getElementById("#next-btn")
+var questionLog = document.getElementById('#question-log')
+var questionEl = document.getElementById('questions')
+var answerEl = document.getElementById('answer-btns')
+
 
 var currentQuestion = {}
 var trueAnswer = true
@@ -13,17 +12,46 @@ var score = 0
 startBtn.addEventListener('click', startQuiz)
 nextBtn.addEventListener('click', () => {
     currentQuestion++
-    nextQuestion
+    nextQuestion()
 })
 
 function startQuiz(){
     startBtn.classList.add('hidden')
     currentQuestion = 0
+    questionLog.classList.remove('hidden')
+    nextQuestion()
 }
+
+function nextQuestion(){
+    resetQuiz()
+    startQuestion([currentQuestion])
+}
+
+function startQuestion(question){
+    questionElement.innerText = question.question
+  question.answers.forEach(answer => {
+    var button = document.createElement('button')
+    button.innerText = answer.text
+    button.classList.add('button')
+    if (answer.correct) {
+      button.dataset.correct = answer.correct
+    }
+    button.addEventListener('click', selectAnswer)
+    answerButtonsElement.appendChild(button)
+  })
+}
+
+function resetQuiz() {
+    clearStatusClass(document.body)
+    nextButton.classList.add('hide')
+    while (answerButtonsElement.firstChild) {
+      answerButtonsElement.removeChild(answerButtonsElement.firstChild)
+    }
+  }
 
 var questions = [
     {
-        question: "What function lets you click on a button?",
+        question: 'What function lets you click on a button?',
         answer: [
         { text: 'addEventListener', correct: true},
         {text:  'addActionListner',correct: false},
