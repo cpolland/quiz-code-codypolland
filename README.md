@@ -11,16 +11,15 @@ Github deployed IO link
 - [GitHub Pages](https://cpolland.github.io/quiz-code-codypolland/)
 
 ## Usage
-The intial landing state of the Page.
-![](assets/images/Screen%20Shot%202022-07-19%20at%202.42.24%20PM.png)
-Once you click Generate Password button you will be propted with password prefrence questions. 
-![](assets/images/Screen%20Shot%202022-07-19%20at%202.42.37%20PM.png)
-![](assets/images/Screen%20Shot%202022-07-19%20at%202.42.50%20PM.png)
-![](assets/images/Screen%20Shot%202022-07-19%20at%202.43.00%20PM.png)
-![](assets/images/Screen%20Shot%202022-07-19%20at%202.43.10%20PM.png)
-![](assets/images/Screen%20Shot%202022-07-19%20at%202.43.20%20PM.png)
-Once all questions are answered the password will be generated from given answeres. 
-![](assets/images/Screen%20Shot%202022-07-19%20at%202.43.28%20PM.png)
+The intial landing state of the Page with scores, timer, quiz description,begin button. 
+![](assets/images/Landing-page.jpg)
+Once you click the Begin Quiz button the quiz directs you to the first question page.
+![](assets/images/question-example.jpg)
+Once you finish the quiz you are directed to the results page. 
+![](assets/images/Finished-quiz.jpg)
+in the upper right you can check your scores saved in local storage. 
+![](assets/images/Scores-page.jpg)
+
 
 
 
